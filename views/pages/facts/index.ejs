@@ -1,0 +1,17 @@
+<%- include('../../partials/head.ejs', {page: "Home" }) %> <%-
+include('../../partials/header.ejs') %>
+
+<div class="container">
+  <div >
+    <% facts.forEach(fact=> { %>
+    <div>
+      <p><%= fact.fact %></p>
+      <p>Legnth:<%= fact.length %></p>
+    </div>
+    <hr>
+
+    <% }) %>
+  </div>
+</div>
+
+<%- include('../../partials/footer.ejs') %>

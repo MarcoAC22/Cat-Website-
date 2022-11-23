@@ -1,0 +1,18 @@
+<%- include('../../partials/head.ejs', {page: "Home" }) %>
+<%- include('../../partials/header.ejs') %>
+
+<div class="container">
+    <div class="d-flex align-content-start flex-wrap">
+    <% breeds.forEach(breed => { %>
+        <div>
+            <a href="/breeds/<%= breed.breed %>" class="m-">
+                <img class="img-thumbnail img-fluid" height="300" width="300"  src="<%= breed.image %>" />
+                <p><%= breed.breed %></p>
+            </a>
+        </div>
+     
+    <% }) %>
+    </div>
+</div>
+
+<%- include('../../partials/footer.ejs') %>
