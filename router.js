@@ -20,7 +20,12 @@ router.get("/breeds", async (req, res) => {
   );
   res.render("pages/breeds/index", { breeds: breeds[0].data });
 });
-
+router.get("/breeds/:breedid", async (req, res)=>{
+  const breeds = await Breed.findOne({data:{$elemMatch:{breed:req.params.breedid}}}, 
+    {"data.$": 1, name:1})
+    res.render("pages/breeds/details", {breed:breeds.data[0]})
+}
+)
 router.get("/facts", async (req, res) => {
   const facts = await Fact.find();
   res.render("pages/facts/index", { facts: facts[0].data });
